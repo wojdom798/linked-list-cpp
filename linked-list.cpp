@@ -76,15 +76,16 @@ class LinkedList {
   string toString(void) {
     string s = "[ ";
     Node* currentNode = this->head;
-    int i = 1;
+    int i = 0;
 
     while (currentNode != NULL) {
+      s += "(" + to_string(i) + ") -> ";
       s += to_string(currentNode->getValue());
       currentNode = currentNode->getNext();
+      i++;
       if (i < this->numberOfItems) {
         s += ", ";
       }
-      i++;
     }
     s += " ]";
 
@@ -100,6 +101,7 @@ int main(void) {
   LinkedList ll = LinkedList(11);
   ll.addItem(25);
   ll.addItem(41);
+  ll.addItem(999);
 
 
   cout << n.getValue() << endl;
